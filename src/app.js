@@ -8,6 +8,12 @@ var canvas = document.getElementById('screen');
 var game = new Game(canvas, update, render);
 var image = new Image();
 image.src = 'assets/animals.png';
+//var blip = new Audio();
+//blip.src = 'assets/blip';
+//var flip = new Audio();
+//flip.src = 'assets/flip';
+//var pair = new Audio();
+//pair.src = 'assets/pair';
 
 // We have 9 pairs of possible cards that are about 212px square
 var cards = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
@@ -23,6 +29,15 @@ console.log(board);
 
 canvas.onclick = function(event) {
   event.preventDefault();
+  switch(state)
+  {
+	case: "waiting for click";
+		if(!card[currentIndex])
+		{
+			blip.play;
+		}
+	break;
+  }
   // TODO: determine which card was clicked on
   // TODO: determine what to do
 }
