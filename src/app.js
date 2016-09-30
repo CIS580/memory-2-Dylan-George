@@ -27,6 +27,16 @@ canvas.onclick = function(event) {
   // TODO: determine what to do
 }
 
+var currentIndex;
+var currentX;
+var currentY;
+canvas.onmousemove = function(event)
+{
+	event.preventDefault();
+	currentX = event.clientX/165;
+	currentY = event.clientY/165;
+}
+
 /**
  * @function masterLoop
  * Advances the game in sync with the refresh rate of the screen
@@ -81,5 +91,9 @@ function render(elapsedTime, ctx) {
       }
     }
   }
-
+  
+	ctx.fillStyle = "red";
+	ctx.beginPath();
+	ctx.arc(currentX, currentY, 3, 0, 2*Math.PI);
+	ctx.fill();
 }
